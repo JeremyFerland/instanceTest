@@ -2,7 +2,7 @@ import pyshark
 #from OSC import OSCClient, OSCMessage
 
 macLst = []
-capture = pyshark.LiveCapture(interface ='wlan1')
+capture = pyshark.LiveCapture(interface ='wlan0')
 capture.display_filter = 'wlan.sa'
 
 capture.display_filter = 'wlan.sa_resolved'
