@@ -1,5 +1,5 @@
 import pyshark
-from OSC import OSCClient, OSCMessage
+#from OSC import OSCClient, OSCMessage
 
 macLst = []
 capture = pyshark.LiveCapture(interface ='wlan1')
@@ -11,15 +11,15 @@ capture
 myError = ''
 
 
-client = OSCClient()
-client.connect( ("192.168.1.143", 7001))
+#client = OSCClient()
+#client.connect( ("192.168.1.143", 7001))
 
 
 
 
 for packet in capture.sniff_continuously():
-  client.send(OSCMessage(packet['WLAN'].ta))
-  client.send(OSCMessage(packet['WLAN'].addr))
+  #client.send(OSCMessage(packet['WLAN'].ta))
+  #client.send(OSCMessage(packet['WLAN'].addr))
 
 
   print 'MAC address: ',packet['WLAN_RADIO'].signal_dbm
