@@ -21,7 +21,7 @@ for packet in capture.sniff_continuously():
  # client.send(OSCMessage(packet['WLAN'].ta))
 #  client.send(OSCMessage(packet['WLAN'].addr))
   try:
-    if int(packet['WLAN_RADIO'].signal_dbm) > (-45):
+    if int(packet['WLAN_RADIO'].signal_dbm) > (-50):
       print 'MAC address: ',packet['WLAN_RADIO'].signal_dbm
       print 'MAC address: ',packet['WLAN'].ta
       print 'MAC address: ',packet['WLAN'].addr
