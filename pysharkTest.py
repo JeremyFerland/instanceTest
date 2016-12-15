@@ -2,7 +2,7 @@ import pyshark
 #from OSC import OSCClient, OSCMessage
 
 macLst = []
-capture = pyshark.LiveCapture(interface ='wlan0')
+capture = pyshark.LiveCapture(interface ='wlan1')
 capture.display_filter = 'wlan.sa'
 
 capture.display_filter = 'wlan.sa_resolved'
@@ -21,10 +21,12 @@ for packet in capture.sniff_continuously():
   #client.send(OSCMessage(packet['WLAN'].ta))
   #client.send(OSCMessage(packet['WLAN'].addr))
 
-
-  print 'MAC address: ',packet['WLAN_RADIO'].signal_dbm
-  print 'MAC address: ',packet['WLAN'].ta
-  print 'MAC address: ',packet['WLAN'].addr
+	try:
+  		print 'MAC address: ',packet['WLAN_RADIO'].signal_dbm
+  		print 'MAC address: ',packet['WLAN'].ta
+  		print 'MAC address: ',packet['WLAN'].addr
+	except :
+		print'nothing here'
  # if packet['WLAN'].ta == '1c:b7:2c:51:ca:85':  
 #    print packet
 
